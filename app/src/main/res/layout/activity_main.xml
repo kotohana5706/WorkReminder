@@ -37,14 +37,14 @@
     </FrameLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/AddWorkfab"
+        android:id="@+id/add_work_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_input_add"
-        android:foregroundTint="#ffffff"
+        android:src="@drawable/ic_add_plus"
         app:layout_anchor="@id/animationFrameLayout"
         app:layout_anchorGravity="right|bottom"
+        app:fabSize="normal"
 
         />
 
