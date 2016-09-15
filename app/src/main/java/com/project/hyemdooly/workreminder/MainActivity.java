@@ -2,24 +2,21 @@ package com.project.hyemdooly.workreminder;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private String[] textData;
+
+    private FloatingActionButton addWorkButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mRecyclerView = (RecyclerView) findViewById(R.id.main_recycler_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -33,15 +30,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 하나의 리스트/카드 사이즈를 일정하게하겠습니다 - true
-        mRecyclerView.setHasFixedSize(true);
+
+        addWorkButton = (FloatingActionButton) findViewById(R.id.add_work_fab);
+        addWorkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LayoutInflater inflater = getLayoutInflater();
+                final View dialogView = inflater.inflate(R.layout.add_work_dialog, null);
+                // null 자리는 ViewGroup root
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this); // Activity가 Context를 상속받음
+                builder.setView(dialogView).show();
+
+            }
+        });
 
 
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new RecyclerAdapter(textData);
-        mRecyclerView.setAdapter(mAdapter);
 
 
     }

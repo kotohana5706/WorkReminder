@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">WorkReminder</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="add_title">Work Title</string>
+    <string name="add_category">Category</string>
+    <string name="add_date">Date</string>
+    <string name="add_ok">OK</string>
+    <string name="add_cancel">CANCEL</string>
 </resources>
