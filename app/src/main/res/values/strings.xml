@@ -6,4 +6,7 @@
     <string name="add_date">Date</string>
     <string name="add_ok">OK</string>
     <string name="add_cancel">CANCEL</string>
+    <string name="calendar_date_picker_result_values"></string>
+
 </resources>
+

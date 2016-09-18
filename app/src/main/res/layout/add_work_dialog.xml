@@ -24,6 +24,7 @@
         android:hint="@string/add_category"
         />
     <EditText
+        android:id="@+id/dialog_date_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
