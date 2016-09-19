@@ -24,16 +24,28 @@
         android:hint="@string/add_category"
         />
     <EditText
-        android:id="@+id/dialog_date_time"
+        android:id="@+id/dialog_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:hint="@string/add_date"
+        android:focusable="false"
+        />
+    <EditText
+        android:id="@+id/dialog_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
-        android:hint="@string/add_date"
+        android:hint="@string/add_time"
         android:focusable="false"
         />
+
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
