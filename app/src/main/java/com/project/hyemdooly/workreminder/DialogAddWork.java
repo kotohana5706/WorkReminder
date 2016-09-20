@@ -33,9 +33,14 @@ public class DialogAddWork extends AppCompatActivity implements CalendarDatePick
 
     public void showDialog(View v){
 
-        final AlertDialog addWorkDialog = new AlertDialog.Builder(this).create();
+        final AlertDialog addWorkDialog = new AlertDialog.Builder(MainActivity.context).create();
         addWorkDialog.setView(v);
         addWorkDialog.show();
+
+        dialogDate = (EditText) v.findViewById(R.id.dialog_time);
+        dialogTime = (EditText) v.findViewById(R.id.dialog_date);
+        buttonOk = (Button) v.findViewById(R.id.dialog_ok_button);
+        buttonCancel = (Button) v.findViewById(R.id.dialog_cancel_button);
 
         dialogDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,14 +79,14 @@ public class DialogAddWork extends AppCompatActivity implements CalendarDatePick
         CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
                 .setOnDateSetListener(onDateSetListener)
                 .setFirstDayOfWeek(Calendar.SUNDAY);
-        cdp.show(getSupportFragmentManager(), FRAG_TAG_DATE_PICKER);
+        cdp.show(MainActivity.fragmentManager, FRAG_TAG_DATE_PICKER);
     }
 
     public void showTimePicker(RadialTimePickerDialogFragment.OnTimeSetListener onTimeSetListener){
         RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
                 .setOnTimeSetListener(onTimeSetListener)
                 .setForced12hFormat();
-        rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
+        rtpd.show(MainActivity.fragmentManager, FRAG_TAG_TIME_PICKER);
     }
 
     @Override
