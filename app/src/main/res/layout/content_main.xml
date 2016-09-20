@@ -13,13 +13,15 @@
     tools:context="com.project.hyemdooly.workreminder.MainActivity"
     tools:showIn="@layout/activity_main">
 
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/main_recycler_view"
+    <ListView
+        android:id="@+id/GridView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:columnWidth="90dp"
+        android:gravity="center"
         android:fadeScrollbars="true"
-        android:scrollbars="vertical"/>
+
+        />
 
 
 

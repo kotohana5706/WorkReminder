@@ -9,6 +9,7 @@
     <string name="calendar_date_picker_result_values">%1$s/%2$s/%3$s</string>
     <string name="add_time">Time</string>
     <string name="calendar_time_picker_result_values">%1$s : %2$s</string>
+    <string name="works">Works</string>
 
 </resources>
 

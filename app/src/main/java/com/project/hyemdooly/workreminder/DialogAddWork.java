@@ -40,7 +40,7 @@ public class DialogAddWork extends AppCompatActivity implements CalendarDatePick
         dialogDate = (EditText) v.findViewById(R.id.dialog_time);
         dialogTime = (EditText) v.findViewById(R.id.dialog_date);
         buttonOk = (Button) v.findViewById(R.id.dialog_ok_button);
-        buttonCancel = (Button) v.findViewById(R.id.dialog_cancel_button);
+        buttonCancel = (Button) v.findViewById(R.id.dialog_cancel_button); // 알맞은 상자에서 id를 찾아줘야함
 
         dialogDate.setOnClickListener(new View.OnClickListener() {
             @Override

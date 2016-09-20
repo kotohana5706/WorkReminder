@@ -20,13 +20,6 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end">
-
-        <include layout="@layout/content_main" />
-    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/animationFrameLayout"
@@ -35,6 +28,15 @@
         android:background="@color/colorPrimary"
         >
     </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/works"
+        android:layout_marginLeft="16dp"
+        />
+
+    <include layout="@layout/content_main" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/add_work_fab"
