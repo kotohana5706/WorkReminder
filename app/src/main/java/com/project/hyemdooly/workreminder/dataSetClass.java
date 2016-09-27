@@ -4,7 +4,7 @@ package com.project.hyemdooly.workreminder;
  * Created by songhyemin on 2016. 9. 25..
  */
 
-public class dataSetClass {
+public class DataSetClass {
     String workTitle;
     String workCategory;
     String hour;
@@ -13,7 +13,7 @@ public class dataSetClass {
     String month;
     String day;
 
-    public dataSetClass(String title, String category, String hour, String minute, String year, String month, String day){
+    public DataSetClass(String title, String category, String hour, String minute, String year, String month, String day){
         this.workTitle = title;
         this.workCategory = category;
         this.hour = hour;

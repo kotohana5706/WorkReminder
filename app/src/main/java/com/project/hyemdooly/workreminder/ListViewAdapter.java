@@ -16,10 +16,10 @@ import java.util.ArrayList;
 public class ListViewAdapter extends BaseAdapter {
     Context context;
     int layout;
-    ArrayList<dataSetClass> dataset;
+    ArrayList<DataSetClass> dataset;
     LayoutInflater inflater;
 
-    public ListViewAdapter(Context context, int layout, ArrayList<dataSetClass> dataset){
+    public ListViewAdapter(Context context, int layout, ArrayList<DataSetClass> dataset){
         this.context = context;
         this.layout = layout;
         this.dataset = dataset;
@@ -65,6 +65,7 @@ public class ListViewAdapter extends BaseAdapter {
         category.setText(dataset.get(position).workCategory.toString());
         datetime.setText(dataset.get(position).year.toString()+"."+dataset.get(position).month.toString()+"."+dataset.get(position).day.toString()
                             +" "+dataset.get(position).hour.toString()+":"+dataset.get(position).minute.toString());
+        // if(날짜가가까워질때) soon.setText("Soon");
 
 
         return convertView;

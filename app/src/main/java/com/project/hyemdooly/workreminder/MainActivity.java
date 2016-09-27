@@ -8,8 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import com.baoyz.swipemenulistview.SwipeMenu;
+import com.baoyz.swipemenulistview.SwipeMenuListView;
 
 import java.util.ArrayList;
 
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private View dialogView;
     public static Context context;
     public static FragmentManager fragmentManager;
-    public ArrayList<dataSetClass> listViewData = new ArrayList<dataSetClass>();
+    public ArrayList<DataSetClass> listViewData = new ArrayList<DataSetClass>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,21 +31,42 @@ public class MainActivity extends AppCompatActivity {
         context = MainActivity.this;
         fragmentManager = getSupportFragmentManager();
 
-        listViewData.add(new dataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
-        listViewData.add(new dataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
-        listViewData.add(new dataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
-        listViewData.add(new dataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
-        listViewData.add(new dataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
-        listViewData.add(new dataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
-        listViewData.add(new dataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
-        listViewData.add(new dataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
-        listViewData.add(new dataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
-        listViewData.add(new dataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
-        listViewData.add(new dataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
+        listViewData.add(new DataSetClass("Work Title", "Category", "1", "30", "2016", "9", "30"));
+        listViewData.add(new DataSetClass("Work Title", "Category", "2", "30", "2016", "9", "30"));
+        listViewData.add(new DataSetClass("Work Title", "Category", "3", "30", "2016", "9", "30"));
+        listViewData.add(new DataSetClass("Work Title", "Category", "4", "30", "2016", "9", "30"));
+        listViewData.add(new DataSetClass("Work Title", "Category", "5", "30", "2016", "9", "30"));
+        listViewData.add(new DataSetClass("Work Title", "Category", "6", "30", "2016", "9", "30"));
+        listViewData.add(new DataSetClass("Work Title", "Category", "7", "30", "2016", "9", "30"));
+        listViewData.add(new DataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
+        listViewData.add(new DataSetClass("Work Title", "Category", "9", "30", "2016", "9", "30"));
+        listViewData.add(new DataSetClass("Work Title", "Category", "10", "30", "2016", "9", "30"));
+        listViewData.add(new DataSetClass("Work Title", "Category", "11", "30", "2016", "9", "30"));
 
-        ListViewAdapter adapter = new ListViewAdapter(context, R.layout.listview_item, listViewData);
-        ListView listView = (ListView) findViewById(R.id.listView);
+        final ListViewAdapter adapter = new ListViewAdapter(context, R.layout.listview_item, listViewData);
+        final com.baoyz.swipemenulistview.SwipeMenuListView listView = (SwipeMenuListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
+
+        com.baoyz.swipemenulistview.SwipeMenuCreator creator = new SwipeMenuCreator(context);
+        listView.setMenuCreator(creator);
+
+        listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                switch (index) {
+                    case 0:
+
+                        break;
+                    case 1:
+                        listViewData.remove(position);
+                        adapter.dataChange();
+                        break;
+
+                }
+                return false;
+            }
+        });
+
 
 
 
