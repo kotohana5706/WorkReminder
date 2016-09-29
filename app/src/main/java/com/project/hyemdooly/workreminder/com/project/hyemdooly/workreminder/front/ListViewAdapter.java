@@ -1,4 +1,4 @@
-package com.project.hyemdooly.workreminder;
+package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.project.hyemdooly.workreminder.R;
 
 import java.util.ArrayList;
 

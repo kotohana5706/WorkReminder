@@ -1,4 +1,4 @@
-package com.project.hyemdooly.workreminder;
+package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
+import com.project.hyemdooly.workreminder.R;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private View dialogView;
     public static Context context;
     public static FragmentManager fragmentManager;
-    public ArrayList<DataSetClass> listViewData = new ArrayList<DataSetClass>();
+    public static ArrayList<DataSetClass> listViewData = new ArrayList<DataSetClass>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,21 +32,11 @@ public class MainActivity extends AppCompatActivity {
         context = MainActivity.this;
         fragmentManager = getSupportFragmentManager();
 
-        listViewData.add(new DataSetClass("Work Title", "Category", "1", "30", "2016", "9", "30"));
-        listViewData.add(new DataSetClass("Work Title", "Category", "2", "30", "2016", "9", "30"));
-        listViewData.add(new DataSetClass("Work Title", "Category", "3", "30", "2016", "9", "30"));
-        listViewData.add(new DataSetClass("Work Title", "Category", "4", "30", "2016", "9", "30"));
-        listViewData.add(new DataSetClass("Work Title", "Category", "5", "30", "2016", "9", "30"));
-        listViewData.add(new DataSetClass("Work Title", "Category", "6", "30", "2016", "9", "30"));
-        listViewData.add(new DataSetClass("Work Title", "Category", "7", "30", "2016", "9", "30"));
-        listViewData.add(new DataSetClass("Work Title", "Category", "8", "30", "2016", "9", "30"));
-        listViewData.add(new DataSetClass("Work Title", "Category", "9", "30", "2016", "9", "30"));
-        listViewData.add(new DataSetClass("Work Title", "Category", "10", "30", "2016", "9", "30"));
-        listViewData.add(new DataSetClass("Work Title", "Category", "11", "30", "2016", "9", "30"));
 
         final ListViewAdapter adapter = new ListViewAdapter(context, R.layout.listview_item, listViewData);
         final com.baoyz.swipemenulistview.SwipeMenuListView listView = (SwipeMenuListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
+
 
         com.baoyz.swipemenulistview.SwipeMenuCreator creator = new SwipeMenuCreator(context);
         listView.setMenuCreator(creator);
@@ -81,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 dialogView = inflater.inflate(R.layout.add_work_dialog, null);
                 // null 자리는 ViewGroup root
 
-                DialogAddWork dialogAddWork = new DialogAddWork();
+                DialogAddWork dialogAddWork = new DialogAddWork(adapter);
                 dialogAddWork.showDialog(dialogView);
 
 
@@ -89,10 +80,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-
-
-
 
 }
 

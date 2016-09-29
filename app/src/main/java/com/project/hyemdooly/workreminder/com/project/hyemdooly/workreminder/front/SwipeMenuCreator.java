@@ -1,9 +1,10 @@
-package com.project.hyemdooly.workreminder;
+package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
 
 import android.content.Context;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
+import com.project.hyemdooly.workreminder.R;
 
 /**
  * Created by songhyemin on 2016. 9. 27..

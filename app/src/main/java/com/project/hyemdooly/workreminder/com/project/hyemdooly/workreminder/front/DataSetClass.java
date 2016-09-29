@@ -1,4 +1,4 @@
-package com.project.hyemdooly.workreminder;
+package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
 
 /**
  * Created by songhyemin on 2016. 9. 25..
