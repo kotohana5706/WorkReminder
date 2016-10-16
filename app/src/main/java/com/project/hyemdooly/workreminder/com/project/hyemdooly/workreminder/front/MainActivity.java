@@ -13,27 +13,37 @@ import android.widget.Toast;
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.project.hyemdooly.workreminder.R;
+import com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.model.Work;
 
-import java.util.ArrayList;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
     private View dialogView;
     public static Context context;
     public static FragmentManager fragmentManager;
-    public static ArrayList<DataSetClass> listViewData = new ArrayList<DataSetClass>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Realm.init(this);
+        RealmConfiguration config = new RealmConfiguration.Builder().name("data.realm").build();
+        Realm.setDefaultConfiguration(config);
+        Realm realm = Realm.getDefaultInstance();
+
+        RealmResults<Work> works = realm.where(Work.class).findAll();
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         context = MainActivity.this;
         fragmentManager = getSupportFragmentManager();
 
 
-        final ListViewAdapter adapter = new ListViewAdapter(context, R.layout.listview_item, listViewData);
+        final ListViewAdapter adapter = new ListViewAdapter(context ,works);
         final com.baoyz.swipemenulistview.SwipeMenuListView listView = (SwipeMenuListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
@@ -49,8 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
                         break;
                     case 1:
-                        listViewData.remove(position);
-                        adapter.dataChange();
+                        // remove data
+                        // notify data change
+
+
                         break;
 
                 }

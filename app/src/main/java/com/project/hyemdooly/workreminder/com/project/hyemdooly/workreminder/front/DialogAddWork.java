@@ -69,13 +69,11 @@ public class DialogAddWork extends AppCompatActivity implements CalendarDatePick
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String mDate = dialogDate.getText().toString();
-                String mTime = dialogTime.getText().toString();
-                String mTitle = dialogTitle.getText().toString();
-                String mCategory = dialogCategory.getText().toString();
-                MainActivity.listViewData.add(new DataSetClass(mTitle, mCategory, mTime.split(":")[0], mTime.split(":")[1],
-                        mDate.split("/")[0], mDate.split("/")[1], mDate.split("/")[2]));
-                adapter.dataChange();
+                // save data
+                // change Update
+
+
+
                 addWorkDialog.dismiss();
             }
         });
