@@ -8,14 +8,13 @@ import java.sql.Time;
 import java.util.Date;
 
 import io.realm.Realm;
-import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 /**
  * Created by songhyemin on 2016. 10. 16..
  */
 
-public class TouchData extends RealmObject{
+public class TouchData{
     Realm realm;
     Context context;
 

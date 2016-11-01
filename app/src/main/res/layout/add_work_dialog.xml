@@ -35,6 +35,7 @@
         android:hint="@string/add_date"
         android:focusable="false"
         />
+
     <EditText
         android:id="@+id/dialog_time"
         android:layout_width="match_parent"
@@ -46,6 +47,24 @@
         android:hint="@string/add_time"
         android:focusable="false"
         />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:orientation="horizontal">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/colorAccent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/repeat"
+            />
+    </LinearLayout>
+
 
 
     <LinearLayout
@@ -63,6 +82,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             style="?buttonBarNegativeButtonStyle"
+            android:textColor="@color/ampm_text_color"
             />
         <Button
             android:id="@+id/dialog_ok_button"
@@ -74,6 +94,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             style="?buttonBarPositiveButtonStyle"
+            android:textColor="@color/colorPrimary"
             />
 
     </LinearLayout>

@@ -24,7 +24,7 @@ public class SwipeMenuCreator implements com.baoyz.swipemenulistview.SwipeMenuCr
         SwipeMenuItem editItem = new SwipeMenuItem(context);
         editItem.setBackground(R.color.colorEditButton);
         editItem.setIcon(R.drawable.ic_edit_button);
-        editItem.setWidth(180);
+        editItem.setWidth(100);
 
         menu.addMenuItem(editItem);
 
@@ -32,7 +32,7 @@ public class SwipeMenuCreator implements com.baoyz.swipemenulistview.SwipeMenuCr
         SwipeMenuItem deleteItem = new SwipeMenuItem(context);
         deleteItem.setBackground(R.color.colorDeleteButton);
         deleteItem.setIcon(R.drawable.ic_delete_button);
-        deleteItem.setWidth(180);
+        deleteItem.setWidth(100);
 
         menu.addMenuItem(deleteItem);
 

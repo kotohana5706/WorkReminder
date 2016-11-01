@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                         // remove data
                         // notify data change
 
-
                         break;
 
                 }

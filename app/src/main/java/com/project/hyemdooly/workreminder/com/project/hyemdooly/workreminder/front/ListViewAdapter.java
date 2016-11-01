@@ -41,8 +41,6 @@ public class ListViewAdapter extends RealmBaseAdapter<Work> implements ListAdapt
 //        category.setText(dataset.get(position).workCategory.toString());
 //        datetime.setText(dataset.get(position).year.toString()+"."+dataset.get(position).month.toString()+"."+dataset.get(position).day.toString()
 //                            +" "+dataset.get(position).hour.toString()+":"+dataset.get(position).minute.toString());
-        // if(날짜가가까워질때) soon.setText("Soon");
-        // soon.setText();
 
 
         return convertView;
