@@ -1,6 +1,7 @@
 package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.model.Work;
 
@@ -15,37 +16,43 @@ import io.realm.RealmResults;
  */
 
 public class TouchData{
-    Realm realm;
+    Realm mRealm;
     Context context;
 
     public TouchData(Realm realm, Context context){
-        this.realm = realm;
+        mRealm = realm;
         this.context = context;
     }
 
-    public void addData(final String title, final Date date, final Time time){
-        Work mWork = null;
-        mWork.setTitle(title);
-        mWork.setDate(date);
-        mWork.setTime(time);
-
-        realm.beginTransaction();
-        realm.copyToRealm(mWork);
-        realm.commitTransaction();
-        realm.close();
-    }
-
-    public void deleteData(){
-
-    }
-
-    public void editData(String title, Date date, Time time){
+    public void init(){
+        mRealm = Realm.getInstance(context.Configuration);
+        RealmResults<Work> workList = getWorkList();
+        Log.i(TAG, "workList Size : "+ workList.size());
 
 
     }
 
-    public void sortData(){
-        RealmResults<Work> results = realm.where(Work.class).findAll();
-        results = results.sort("date");
+    private RealmResults<Work> getWorkList(){
+        return mRealm.where(Work.class).findAll();
     }
+
+    private void insertWorkData(String title, String category, Date date, Time time){
+
+        mRealm.beginTransaction();
+        Work work = mRealm.createObject(Work.class);
+        work.setTitle(title);
+        work.setCategory(category);
+        work.setDate(date);
+        work.setTime(time);
+        mRealm.commitTransaction();
+    }
+
+    private void deleteuserData(){
+        mRealm.beginTransaction();
+        RealmResults<Work> workList = mRealm.where(Work.class).findAll();
+        workList.remove();
+        mRealm.commitTransaction();
+    }
+
+
 }
