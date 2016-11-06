@@ -1,5 +1,7 @@
 package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.model;
 
+import java.util.Date;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -12,7 +14,7 @@ public class Work extends RealmObject {
     @PrimaryKey
     private String title;
     private String category;
-    private android.icu.text.SimpleDateFormat date;
+    private Date date;
 
 
     public String getTitle() {
@@ -31,11 +33,11 @@ public class Work extends RealmObject {
         this.category = category;
     }
 
-    public android.icu.text.SimpleDateFormat getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(android.icu.text.SimpleDateFormat date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

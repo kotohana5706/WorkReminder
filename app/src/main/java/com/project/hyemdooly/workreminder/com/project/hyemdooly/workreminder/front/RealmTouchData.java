@@ -37,7 +37,6 @@ public class RealmTouchData {
         work.setTitle(title);
         work.setCategory(category);
         work.setDate(date);
-        work.setTime(time);
         mRealm.commitTransaction();
     }
 
