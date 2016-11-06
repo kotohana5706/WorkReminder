@@ -16,25 +16,20 @@ import com.project.hyemdooly.workreminder.R;
 import com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.model.Work;
 
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
     private View dialogView;
     public static Context context;
     public static FragmentManager fragmentManager;
-
+    private Realm realm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Realm.init(this);
-        RealmConfiguration config = new RealmConfiguration.Builder().name("data.realm").build();
-        Realm.setDefaultConfiguration(config);
-        Realm realm = Realm.getDefaultInstance();
-
-        RealmResults<Work> works = realm.where(Work.class).findAll();
-
         setContentView(R.layout.activity_main);
+        realm = Realm.getDefaultInstance();
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -42,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
         context = MainActivity.this;
         fragmentManager = getSupportFragmentManager();
 
+        RealmResults<Work> works = realm.where(Work.class).findAll();
 
-        final ListViewAdapter adapter = new ListViewAdapter(context ,works);
+        final ListViewAdapter adapter = new ListViewAdapter(context, works);
         final com.baoyz.swipemenulistview.SwipeMenuListView listView = (SwipeMenuListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
@@ -92,5 +88,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-}
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        realm.close();
+    }
 
+
+}

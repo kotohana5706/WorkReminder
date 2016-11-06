@@ -1,7 +1,6 @@
 package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.model.Work;
 
@@ -15,28 +14,23 @@ import io.realm.RealmResults;
  * Created by songhyemin on 2016. 10. 16..
  */
 
-public class TouchData{
+public class RealmTouchData {
     Realm mRealm;
     Context context;
 
-    public TouchData(Realm realm, Context context){
+    private static final String TAG = MainActivity.class.getSimpleName();
+
+    public RealmTouchData(Realm realm, Context context){
         mRealm = realm;
         this.context = context;
     }
 
-    public void init(){
-        mRealm = Realm.getInstance(context.Configuration);
-        RealmResults<Work> workList = getWorkList();
-        Log.i(TAG, "workList Size : "+ workList.size());
-
-
-    }
 
     private RealmResults<Work> getWorkList(){
         return mRealm.where(Work.class).findAll();
     }
 
-    private void insertWorkData(String title, String category, Date date, Time time){
+    private void addWorkData(String title, String category, Date date, Time time){
 
         mRealm.beginTransaction();
         Work work = mRealm.createObject(Work.class);
@@ -50,7 +44,6 @@ public class TouchData{
     private void deleteuserData(){
         mRealm.beginTransaction();
         RealmResults<Work> workList = mRealm.where(Work.class).findAll();
-        workList.remove();
         mRealm.commitTransaction();
     }
 
