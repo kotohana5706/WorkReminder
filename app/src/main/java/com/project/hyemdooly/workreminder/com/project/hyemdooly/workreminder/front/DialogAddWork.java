@@ -73,7 +73,6 @@ public class DialogAddWork extends AppCompatActivity implements CalendarDatePick
                 // change Update
 
 
-
                 addWorkDialog.dismiss();
             }
         });
@@ -84,7 +83,6 @@ public class DialogAddWork extends AppCompatActivity implements CalendarDatePick
                 addWorkDialog.dismiss();
             }
         });
-
 
     }
 
@@ -100,6 +98,7 @@ public class DialogAddWork extends AppCompatActivity implements CalendarDatePick
                 .setOnTimeSetListener(onTimeSetListener)
                 .setForced12hFormat();
         rtpd.show(MainActivity.fragmentManager, FRAG_TAG_TIME_PICKER);
+
     }
 
     @Override

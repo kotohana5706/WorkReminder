@@ -21,6 +21,7 @@ public class ListViewAdapter extends RealmBaseAdapter<Work> implements ListAdapt
     int layout;
     LayoutInflater inflater;
 
+
     public ListViewAdapter(Context context, OrderedRealmCollection<Work> realmResults){
         super(context, realmResults);
     }
@@ -33,15 +34,12 @@ public class ListViewAdapter extends RealmBaseAdapter<Work> implements ListAdapt
         }
         TextView title = (TextView) convertView.findViewById(R.id.list_title);
         TextView category = (TextView) convertView.findViewById(R.id.list_category);
-        TextView datetime = (TextView) convertView.findViewById(R.id.list_datetime);
-        TextView soon = (TextView) convertView.findViewById(R.id.list_soon);
+        TextView date = (TextView) convertView.findViewById(R.id.list_date);
+        // TextView soon = (TextView) convertView.findViewById(R.id.list_soon);
 
-
-//        title.setText(dataset.get(position).workTitle.toString());
-//        category.setText(dataset.get(position).workCategory.toString());
-//        datetime.setText(dataset.get(position).year.toString()+"."+dataset.get(position).month.toString()+"."+dataset.get(position).day.toString()
-//                            +" "+dataset.get(position).hour.toString()+":"+dataset.get(position).minute.toString());
-
+        title.setText(adapterData.get(position).getTitle().toString());
+        category.setText(adapterData.get(position).getCategory().toString());
+        date.setText(adapterData.get(position).getDate().toString());
 
         return convertView;
     }

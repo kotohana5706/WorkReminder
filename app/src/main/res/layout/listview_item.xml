@@ -39,7 +39,7 @@
             android:layout_marginRight="16dp"
             >
             <TextView
-                android:id="@+id/list_datetime"
+                android:id="@+id/list_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"

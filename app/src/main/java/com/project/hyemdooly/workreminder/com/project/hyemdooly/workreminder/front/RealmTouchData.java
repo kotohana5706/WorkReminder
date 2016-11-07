@@ -4,24 +4,25 @@ import android.content.Context;
 
 import com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.model.Work;
 
-import java.sql.Time;
 import java.util.Date;
 
+import io.realm.OrderedRealmCollection;
 import io.realm.Realm;
 import io.realm.RealmResults;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 /**
  * Created by songhyemin on 2016. 10. 16..
  */
 
 public class RealmTouchData {
-    Realm mRealm;
+    Realm mRealm = Realm.getDefaultInstance();
     Context context;
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    public RealmTouchData(Realm realm, Context context){
-        mRealm = realm;
+    public RealmTouchData(Context context){
         this.context = context;
     }
 
@@ -30,8 +31,8 @@ public class RealmTouchData {
         return mRealm.where(Work.class).findAll();
     }
 
-    private void addWorkData(String title, String category, Date date, Time time){
 
+    private void addWorkData(String title, String category, Date date){
         mRealm.beginTransaction();
         Work work = mRealm.createObject(Work.class);
         work.setTitle(title);
@@ -40,9 +41,9 @@ public class RealmTouchData {
         mRealm.commitTransaction();
     }
 
-    private void deleteuserData(){
+    private void deleteuserData(int position, OrderedRealmCollection<Work> adapterData){
         mRealm.beginTransaction();
-        RealmResults<Work> workList = mRealm.where(Work.class).findAll();
+        RealmResults<Work> workList = mRealm.where(Work.class).equalTo().findAll();
         mRealm.commitTransaction();
     }
 
