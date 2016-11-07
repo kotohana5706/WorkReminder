@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         realm = Realm.getDefaultInstance();
+        final RealmTouchData controller = new RealmTouchData(context);
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         // remove data
                         // notify data change
+                        controller.deleteuserData(adapter.getItem(position).getTitle().toString());
 
                         break;
 

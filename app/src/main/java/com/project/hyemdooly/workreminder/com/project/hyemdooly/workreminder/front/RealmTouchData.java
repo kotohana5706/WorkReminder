@@ -6,11 +6,10 @@ import com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.mod
 
 import java.util.Date;
 
-import io.realm.OrderedRealmCollection;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
+
 
 /**
  * Created by songhyemin on 2016. 10. 16..
@@ -27,12 +26,12 @@ public class RealmTouchData {
     }
 
 
-    private RealmResults<Work> getWorkList(){
+    public RealmResults<Work> getWorkList(){
         return mRealm.where(Work.class).findAll();
     }
 
 
-    private void addWorkData(String title, String category, Date date){
+    public void addWorkData(String title, String category, Date date){
         mRealm.beginTransaction();
         Work work = mRealm.createObject(Work.class);
         work.setTitle(title);
@@ -41,11 +40,19 @@ public class RealmTouchData {
         mRealm.commitTransaction();
     }
 
-    private void deleteuserData(int position, OrderedRealmCollection<Work> adapterData){
+    public void deleteuserData(String mTitle){
         mRealm.beginTransaction();
-        RealmResults<Work> workList = mRealm.where(Work.class).equalTo().findAll();
+        RealmResults<Work> workList = mRealm.where(Work.class).equalTo("title", mTitle).findAll();
+        workList.deleteAllFromRealm();
         mRealm.commitTransaction();
     }
 
+    public void searchWorkDataWithTitle(){
+
+    }
+
+    public void searchWorkDataWithCategory(){
+
+    }
 
 }
