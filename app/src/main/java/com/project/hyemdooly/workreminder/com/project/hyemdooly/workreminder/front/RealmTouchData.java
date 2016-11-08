@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.model.Work;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -31,7 +31,7 @@ public class RealmTouchData {
     }
 
 
-    public void addWorkData(String title, String category, Date date){
+    public void addWorkData(String title, String category, Calendar date){
         mRealm.beginTransaction();
         Work work = mRealm.createObject(Work.class);
         work.setTitle(title);

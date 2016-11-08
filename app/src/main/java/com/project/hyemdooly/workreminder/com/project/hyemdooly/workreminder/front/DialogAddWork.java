@@ -26,9 +26,12 @@ public class DialogAddWork extends AppCompatActivity implements CalendarDatePick
     private static final String FRAG_TAG_DATE_PICKER = "Select Date";
     private static final String FRAG_TAG_TIME_PICKER = "Select Time";
     private ListViewAdapter adapter;
+    private RealmTouchData controller;
+    private DateSetOnCalendar setOnCalendar = new DateSetOnCalendar();
 
-    public DialogAddWork(ListViewAdapter adapter){
+    public DialogAddWork(ListViewAdapter adapter, RealmTouchData controller){
         this.adapter = adapter;
+        this.controller = controller;
     }
 
     @Override
@@ -71,7 +74,12 @@ public class DialogAddWork extends AppCompatActivity implements CalendarDatePick
             public void onClick(View view) {
                 // save data
                 // change Update
+                String mTitle = dialogTitle.getText().toString();
+                String mCategory = dialogCategory.getText().toString();
+                Calendar mDate = setOnCalendar.getCalendar();
+                // Calendar.set(year + 1900, month, date, hrs, min)
 
+                controller.addWorkData(mTitle, mCategory, mDate);
 
                 addWorkDialog.dismiss();
             }
@@ -104,10 +112,13 @@ public class DialogAddWork extends AppCompatActivity implements CalendarDatePick
     @Override
     public void onDateSet(CalendarDatePickerDialogFragment dialog, int year, int monthOfYear, int dayOfMonth) {
         dialogDate.setText(dialog.getResources().getString(R.string.calendar_date_picker_result_values, year, monthOfYear+1, dayOfMonth));
+        setOnCalendar.setDate(year, monthOfYear+1, dayOfMonth);
     }
 
     @Override
     public void onTimeSet(RadialTimePickerDialogFragment dialog, int hourOfDay, int minute) {
         dialogTime.setText(dialog.getResources().getString(R.string.calendar_time_picker_result_values, hourOfDay, minute));
+        setOnCalendar.setTime(hourOfDay, minute);
     }
+
 }

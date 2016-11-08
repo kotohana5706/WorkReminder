@@ -1,6 +1,6 @@
 package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.model;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -14,8 +14,7 @@ public class Work extends RealmObject {
     @PrimaryKey
     private String title;
     private String category;
-    private Date date;
-
+    private Calendar date;
 
     public String getTitle() {
         return title;
@@ -33,11 +32,11 @@ public class Work extends RealmObject {
         this.category = category;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 }
