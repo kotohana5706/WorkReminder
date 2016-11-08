@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         // remove data
                         // notify data change
-                        controller.deleteuserData(adapter.getItem(position).getTitle().toString());
+                        controller.deleteuserData(position+1);
 
                         break;
 

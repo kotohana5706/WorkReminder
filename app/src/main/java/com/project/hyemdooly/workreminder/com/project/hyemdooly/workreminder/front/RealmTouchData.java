@@ -34,16 +34,23 @@ public class RealmTouchData {
     public void addWorkData(String title, String category, Calendar date){
 
         mRealm.beginTransaction();
-        Work work = mRealm.createObject(Work.class);
+//        Work work = mRealm.createObject(Work.class, new Work());
+//        work.setTitle(title);
+//        work.setCategory(category);
+//        work.setDate(date.getTime());
+        Work work = new Work();
+        work.setId(getNextId());
         work.setTitle(title);
         work.setCategory(category);
         work.setDate(date.getTime());
+        mRealm.copyToRealm(work);
         mRealm.commitTransaction();
+
     }
 
-    public void deleteuserData(String mTitle){
+    public void deleteuserData(int position){
         mRealm.beginTransaction();
-        RealmResults<Work> workList = mRealm.where(Work.class).equalTo("title", mTitle).findAll();
+        RealmResults<Work> workList = mRealm.where(Work.class).equalTo("id", (long)position).findAll();
         workList.deleteAllFromRealm();
         mRealm.commitTransaction();
     }
@@ -53,6 +60,17 @@ public class RealmTouchData {
     }
 
     public void searchWorkDataWithCategory(){
+
+    }
+
+    public long getNextId(){
+
+        try{
+            return mRealm.where(Work.class).max("id").intValue()+1;
+
+        }catch(Exception e){
+            return 0;
+        }
 
     }
 

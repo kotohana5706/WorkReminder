@@ -18,19 +18,19 @@ import io.realm.RealmBaseAdapter;
  */
 
 public class ListViewAdapter extends RealmBaseAdapter<Work> implements ListAdapter {
-    int layout;
+    int layout = R.layout.listview_item;
     LayoutInflater inflater;
 
 
     public ListViewAdapter(Context context, OrderedRealmCollection<Work> realmResults){
         super(context, realmResults);
+        this.inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         if(convertView == null){
             convertView = inflater.inflate(this.layout, null);
-
         }
         TextView title = (TextView) convertView.findViewById(R.id.list_title);
         TextView category = (TextView) convertView.findViewById(R.id.list_category);
