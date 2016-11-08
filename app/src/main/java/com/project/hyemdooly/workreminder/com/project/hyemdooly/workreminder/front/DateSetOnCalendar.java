@@ -1,6 +1,7 @@
 package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * Created by songhyemin on 2016. 11. 8..
@@ -29,7 +30,7 @@ public class DateSetOnCalendar{
     }
 
     public Calendar getCalendar(){
-        Calendar calendar = null;
+        Calendar calendar = new GregorianCalendar();
         calendar.set(year, month, date, hrs, min);
         return calendar;
     }

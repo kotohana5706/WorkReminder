@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 dialogView = inflater.inflate(R.layout.add_work_dialog, null);
                 // null 자리는 ViewGroup root
 
-                DialogAddWork dialogAddWork = new DialogAddWork(adapter);
+                DialogAddWork dialogAddWork = new DialogAddWork(adapter, controller);
                 dialogAddWork.showDialog(dialogView);
 
 

@@ -32,11 +32,12 @@ public class RealmTouchData {
 
 
     public void addWorkData(String title, String category, Calendar date){
+
         mRealm.beginTransaction();
         Work work = mRealm.createObject(Work.class);
         work.setTitle(title);
         work.setCategory(category);
-        work.setDate(date);
+        work.setDate(date.getTime());
         mRealm.commitTransaction();
     }
 
