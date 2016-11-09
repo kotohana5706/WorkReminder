@@ -1,4 +1,4 @@
-package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
+package com.project.hyemdooly.workreminder.front;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

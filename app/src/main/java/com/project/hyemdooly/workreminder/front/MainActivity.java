@@ -1,4 +1,4 @@
-package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
+package com.project.hyemdooly.workreminder.front;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.project.hyemdooly.workreminder.R;
-import com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.model.Work;
+import com.project.hyemdooly.workreminder.model.Work;
 
 import io.realm.Realm;
 import io.realm.RealmResults;

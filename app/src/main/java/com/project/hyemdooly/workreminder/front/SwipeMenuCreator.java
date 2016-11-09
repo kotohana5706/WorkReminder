@@ -1,4 +1,4 @@
-package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
+package com.project.hyemdooly.workreminder.front;
 
 import android.content.Context;
 

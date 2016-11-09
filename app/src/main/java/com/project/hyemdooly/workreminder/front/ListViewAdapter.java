@@ -1,4 +1,4 @@
-package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
+package com.project.hyemdooly.workreminder.front;
 
 import android.content.Context;
 import android.util.Log;
@@ -9,10 +9,12 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.project.hyemdooly.workreminder.R;
-import com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.model.Work;
+import com.project.hyemdooly.workreminder.model.Work;
 
 import io.realm.OrderedRealmCollection;
 import io.realm.RealmBaseAdapter;
+
+;
 
 /**
  * Created by songhyemin on 2016. 9. 25..

@@ -1,14 +1,13 @@
-package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
+package com.project.hyemdooly.workreminder.front;
 
 import android.content.Context;
 
-import com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.model.Work;
+import com.project.hyemdooly.workreminder.model.Work;
 
 import java.util.Calendar;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
-
 
 /**
  * Created by songhyemin on 2016. 10. 16..

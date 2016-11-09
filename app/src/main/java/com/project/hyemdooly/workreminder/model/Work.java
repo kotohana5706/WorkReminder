@@ -1,4 +1,4 @@
-package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.model;
+package com.project.hyemdooly.workreminder.model;
 
 import java.util.Date;
 

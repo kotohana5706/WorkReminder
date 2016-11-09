@@ -1,4 +1,4 @@
-package com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front;
+package com.project.hyemdooly.workreminder.front;
 
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -13,7 +13,7 @@ import com.project.hyemdooly.workreminder.R;
 
 import java.util.Calendar;
 
-import static com.project.hyemdooly.workreminder.com.project.hyemdooly.workreminder.front.MainActivity.context;
+import static com.project.hyemdooly.workreminder.front.MainActivity.context;
 
 public class DialogAddWork extends AppCompatActivity implements CalendarDatePickerDialogFragment.OnDateSetListener, RadialTimePickerDialogFragment.OnTimeSetListener {
 
