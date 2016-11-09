@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
-        com.baoyz.swipemenulistview.SwipeMenuCreator creator = new SwipeMenuCreator(context);
+        final com.baoyz.swipemenulistview.SwipeMenuCreator creator = new SwipeMenuCreator(context);
         listView.setMenuCreator(creator);
 
         listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
@@ -55,12 +55,12 @@ public class MainActivity extends AppCompatActivity {
                     case 0:
 
 
-
                         break;
                     case 1:
                         // remove data
                         // notify data change
-                        controller.deleteuserData(position+1);
+                        controller.deleteuserData(adapter.getItem(position).getTitle().toString(),
+                                adapter.getItem(position).getCategory().toString());
 
                         break;
 

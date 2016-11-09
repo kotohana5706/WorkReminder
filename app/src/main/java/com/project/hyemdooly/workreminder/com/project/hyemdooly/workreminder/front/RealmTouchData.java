@@ -10,7 +10,6 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 
 
-
 /**
  * Created by songhyemin on 2016. 10. 16..
  */
@@ -38,6 +37,7 @@ public class RealmTouchData {
 //        work.setTitle(title);
 //        work.setCategory(category);
 //        work.setDate(date.getTime());
+
         Work work = new Work();
         work.setId(getNextId());
         work.setTitle(title);
@@ -48,9 +48,9 @@ public class RealmTouchData {
 
     }
 
-    public void deleteuserData(int position){
+    public void deleteuserData(String title, String category){
         mRealm.beginTransaction();
-        RealmResults<Work> workList = mRealm.where(Work.class).equalTo("id", (long)position).findAll();
+        RealmResults<Work> workList = mRealm.where(Work.class).equalTo("title", title).equalTo("category", category).findAll();
         workList.deleteAllFromRealm();
         mRealm.commitTransaction();
     }
@@ -64,10 +64,8 @@ public class RealmTouchData {
     }
 
     public long getNextId(){
-
         try{
             return mRealm.where(Work.class).max("id").intValue()+1;
-
         }catch(Exception e){
             return 0;
         }
