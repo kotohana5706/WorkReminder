@@ -8,8 +8,8 @@ import java.util.Date;
 
 public class DateConvertToDateOrTime {
 
-    private java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
-    private java.text.SimpleDateFormat timeFormat = new java.text.SimpleDateFormat("HH : mm");
+    private java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yy-MM-dd");
+    private java.text.SimpleDateFormat timeFormat = new java.text.SimpleDateFormat("HH:mm");
 
     public DateConvertToDateOrTime(){
     }

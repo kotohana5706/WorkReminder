@@ -53,15 +53,12 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
                 switch (index) {
                     case 0:
-
-
                         break;
                     case 1:
                         // remove data
                         // notify data change
                         controller.deleteuserData(adapter.getItem(position).getTitle().toString(),
                                 adapter.getItem(position).getCategory().toString());
-
                         break;
 
                 }
@@ -85,8 +82,6 @@ public class MainActivity extends AppCompatActivity {
 
                 DialogAddWork dialogAddWork = new DialogAddWork(adapter, controller);
                 dialogAddWork.showDialog(dialogView);
-
-
             }
         });
 
