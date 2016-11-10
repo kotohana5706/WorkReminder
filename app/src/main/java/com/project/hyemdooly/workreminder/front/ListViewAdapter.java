@@ -1,7 +1,6 @@
 package com.project.hyemdooly.workreminder.front;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,15 +39,13 @@ public class ListViewAdapter extends RealmBaseAdapter<Work> implements ListAdapt
         TextView category = (TextView) convertView.findViewById(R.id.list_category);
         TextView date = (TextView) convertView.findViewById(R.id.list_date);
         TextView time = (TextView) convertView.findViewById(R.id.list_time);
-        // TextView soon = (TextView) convertView.findViewById(R.id.list_soon);
 
         title.setText(adapterData.get(position).getTitle().toString());
         category.setText(adapterData.get(position).getCategory().toString());
         date.setText(convertDate.getDate(adapterData.get(position).getDate()));
         time.setText(convertDate.getTime(adapterData.get(position).getDate()));
 
-        // time.setText(adapterData.get(position).getDate().toString().split("-));
-        Log.d("date print", adapterData.get(position).getDate().toString());
+        // Log.d("date print", adapterData.get(position).getDate().toString());
         return convertView;
     }
 }
